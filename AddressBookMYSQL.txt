@@ -150,3 +150,25 @@ mysql> select count(lastname) from addressbooks group by city;
 +-----------------+
 3 rows in set (0.01 sec)
 
+
+--------------------------------------------------------------------------------
+
+#UC-8
+
+
+
+mysql> alter table addressbooks add profession varchar(100) after lastname;
+Query OK, 0 rows affected (0.09 sec)
+Records: 0  Duplicates: 0  Warnings: 0s
+
+mysql> select * addressbooks;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'addressbooks' at line 1
+mysql> select * from  addressbooks;
++----+-----------+----------+------------+------+------------+-----------+--------+-------------+
+| id | firstname | lastname | profession | name | address    | city      | zip    | phonenumber |
++----+-----------+----------+------------+------+------------+-----------+--------+-------------+
+|  1 | CMD       | SHAKEEL  | NULL       | NULL | MATKERWADI | ADONI     | 510301 |      958146 |
+|  2 | CMD       | ABID     | NULL       | NULL | MATKERWADI | CADONI    | 510302 |       83047 |
+|  5 | k         | vishnu   | NULL       | NULL | ap         | karnataka |   6514 |        8577 |
++----+-----------+----------+------------+------+------------+-----------+--------+-------------+
+3 rows in set (0.00 sec)
